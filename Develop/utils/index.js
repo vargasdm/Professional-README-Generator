@@ -100,12 +100,13 @@ inquirer
         const readMeContent = generateMarkdown(answers);
         console.log(generateMarkdown(answers));
         
-        fs.writeFile('README.md', htmlPageContent, (err) =>
+        fs.writeFile('README.md', readMeContent, (err) =>
         err ? console.log(err) : console.log('Successfully created README.md!')
       );
   // return `# ${data.title}
 
 })
+
 
 
 
