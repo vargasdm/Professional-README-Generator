@@ -2,7 +2,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
-// console.log(generateMarkDownFunctions);
 
 inquirer
     .prompt([
@@ -65,7 +64,7 @@ function writeToFile(fileName, data) {
     err ? console.log(err) : console.log('Successfully created README!')
     )}
 
-//     writeToFile('README.md', readMeContent);
+
 
 
 // // TODO: Create an array of questions for user input
@@ -80,14 +79,6 @@ function writeToFile(fileName, data) {
 //     'What is your GitHub username?',
 //     'What is your email address?'
 // ];
-
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {
-
-// }
-
-
-
 
 // TODO: Create a function to initialize app
 // function init() {
