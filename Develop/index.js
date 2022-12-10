@@ -1,9 +1,9 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-// const generateMarkDownFunctions = require('./Develop/utils/generateMarkdown.js')
+const generateMarkdown = require('./utils/generateMarkdown.js');
 // console.log(generateMarkDownFunctions);
-let readMeContent;
+
 inquirer
     .prompt([
         {
@@ -58,21 +58,12 @@ inquirer
         console.log(answers.license);
         readMeContent = answers;
         console.log(readMeContent);
-        
-        export {readMeContent};
-
-        
-//         fs.writeFile('README.md', readMeContent, (err) =>
-//         err ? console.log(err) : console.log('Successfully created README.md!')
-//       );
-  // return `# ${data.title}
-
 })
 
-// function writeToFile(fileName, data) {
-//     fs.writeFile('README.md', readMeContent, (err) =>
-//     err ? console.log(err) : console.log('Successfully created README!')
-//     )}
+function writeToFile(fileName, data) {
+    fs.writeFile('README.md', generateMarkdown(readMeContent), (err) =>
+    err ? console.log(err) : console.log('Successfully created README!')
+    )}
 
 //     writeToFile('README.md', readMeContent);
 
