@@ -1,18 +1,8 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
+// function that will generate the readme.md using the user input
 function generateMarkdown(answers) {
-return `# ${readMeContent.title}
+// returns the filled out readmeto the index.js file
+  return `# ${answers.title}
+![License](https://img.shields.io/badge/License-${answers.license})
 
 ## Table of Contents
 
@@ -26,35 +16,36 @@ return `# ${readMeContent.title}
 
 ## Description
 
-${readMeContent.description}.
+${answers.description}.
 
 ## Installation
 
-${readMeContent.installation}.
+${answers.installation}.
 
 ## Usage
 
-${readMeContent.usage}.
+${answers.usage}.
 
 ## License
 
-${readMeContent.license}
+This project is licensed under ${answers.license} license
 
 ## Contribution
 
-${readMeContent.contribution}.
+${answers.contribution}.
 
 ## Test
 
-${readMeContent.tests}.
+${answers.tests}.
 
 ## Questions
 
 For questions regarding this app reach out to:
-Github: https://github.com/${readMeContent.username}
-Email: ${readMeContent.email}`
+Github: https://github.com/${answers.username}
+Email: ${answers.email}`
 };
 
+// modulate the generateMarkdown frunction so that it can be accessed in teh index.js file
 module.exports = generateMarkdown;
 
 

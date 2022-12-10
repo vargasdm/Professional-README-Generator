@@ -1,8 +1,9 @@
-// TODO: Include packages needed for this application
+// modules needed for this app to function
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
+// prompts that will be presented to the user
 inquirer
     .prompt([
         {
@@ -27,9 +28,9 @@ inquirer
         },
         {
             type: 'list',
-            message: 'What license is being used for this porject?',
+            message: 'What license is being used for this project?',
             name: 'license',
-            choices: ['MIT', 'Apache 2', 'BDS', 'no license']
+            choices: ['MIT', 'APACHE 2.0', 'BDS 3.0', 'GPL3.0', 'N/A'],
         },
         {
             type: 'input',
@@ -52,41 +53,12 @@ inquirer
             message: 'What is your email address?',
         },
     ])
+    // uses answers, passes them into generateMarkdwn function and and returns the results
     .then((answers) => {
-        console.log(answers);
-        console.log(answers.license);
-        readMeContent = answers;
-        console.log(readMeContent);
-})
+        const readme = generateMarkdown(answers);
+        // creates the readme.md file and fills it with the returned data 
+        fs.writeFile('README.md', readme, (err) =>
+            err ? console.log(err) : console.log('Successfully created README!')
+        )
+    })
 
-function writeToFile(fileName, data) {
-    fs.writeFile('README.md', generateMarkdown(readMeContent), (err) =>
-    err ? console.log(err) : console.log('Successfully created README!')
-    )}
-
-
-
-
-// // TODO: Create an array of questions for user input
-// const questions = [
-//     'What is the title of this project?',
-//     'Input a description for your project.',
-//     'Input installation instructions for your project.',
-//     'Input the usage for your project.',
-//     'What license is being used for this project?',
-//     'Input contribution instructions for your project.',
-//     'Input test instructions for your project.',
-//     'What is your GitHub username?',
-//     'What is your email address?'
-// ];
-
-// TODO: Create a function to initialize app
-// function init() {
-    // inquirer.prompt(questions).then(inquirerResponses => {
-    //     // console.log('Generating README...');
-    //     // writeToFile('README.md', generateMarkdown({...inquirerResponses}))
-    // })
-// }
-
-// Function call to initialize app
-// init();
