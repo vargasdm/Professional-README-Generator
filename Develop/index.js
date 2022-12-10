@@ -58,7 +58,7 @@ inquirer
         const readme = generateMarkdown(answers);
         // creates the readme.md file and fills it with the returned data 
         fs.writeFile('README.md', readme, (err) =>
-            err ? console.log(err) : console.log('Successfully created README!')
+            err ? console.log(err) : console.log('We have successfully created your README!')
         )
     })
 
