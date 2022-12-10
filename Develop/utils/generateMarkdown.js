@@ -15,7 +15,49 @@ function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(answers) {
-    fs.writeFile('README.md', readMeContent, (err) =>
+  `# ${readMeContent.title}
+
+## Table of Contents
+
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contribution](#contribution)
+- [Test](#test)
+- [Questions](#questions)
+
+## Description
+
+${readMeContent.description}.
+
+## Installation
+
+${readMeContent.installation}.
+
+## Usage
+
+${readMeContent.usage}.
+
+## License
+
+${readMeContent.license}
+
+## Contribution
+
+${readMeContent.contribution}.
+
+## Test
+
+${readMeContent.tests}.
+
+## Questions
+
+For questions regarding this app reach out to:
+Github: https://github.com/${readMeContent.username}
+Email: ${readMeContent.email}`
+
+  fs.writeFile('README.md', readMeContent, (err) =>
             err ? console.log(err) : console.log('Successfully created README.md!')
           );
 //   return `# ${data.title}
